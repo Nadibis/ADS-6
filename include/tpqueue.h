@@ -11,6 +11,7 @@ class TPQueue {
     Node* next;
   };
   Node* head;
+
  public:
   TPQueue() : head(nullptr) {}     //конструктор
   ~TPQueue() {                     //деструктор
@@ -29,12 +30,12 @@ class TPQueue {
       head = newNode;
       return;
     }
-    if (item.prior > head->data.prior) {      // если приоритет элемента выше приоритета головы
+    if (item.prior > head->data.prior) { //приор элемента выше приор головы
       newNode->next = head;
       head = newNode;
       return;
     }
-    Node* current = head;                     // если приоритет элемента не выше приоритета головы
+    Node* current = head; //приор элемента не выше приор головы
     while (current->next != nullptr &&
            current->next->data.prior >= item.prior) {
       current = current->next;
